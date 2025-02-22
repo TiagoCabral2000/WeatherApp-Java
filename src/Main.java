@@ -39,11 +39,14 @@ public class Main {
             //1. Fetch the API response based on API Link
             HttpURLConnection apiConnection = fetchApiResponse(urlString);
 
-            //2. Check for the response status. 200 means that the connection was successful
+            //Check for the response status. 200 means that the connection was successful
             if (apiConnection.getResponseCode() != 200){
                 System.out.println("Error: Could not connect to the API");
                 return null;
             }
+
+            //2. Read the response and convert store String type
+            String jsonResponse = readApiResponse(apiConnection);
 
 
 
